@@ -2,6 +2,6 @@ package GUI.Interface;
 
 public interface ILevel {
 	
-	int[][] getLevel();
+	int[][] getLevel(int index);
 	
 }
