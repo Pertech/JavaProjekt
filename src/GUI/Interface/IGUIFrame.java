@@ -1,8 +1,8 @@
-package GUI;
+package GUI.Interface;
 
 import javax.swing.JPanel;
 
-public interface GUIFrame {
+public interface IGUIFrame {
 	
 	JPanel loadGUI();	
 	JPanel updateGUI();

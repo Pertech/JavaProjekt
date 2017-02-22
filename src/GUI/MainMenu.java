@@ -2,7 +2,9 @@ package GUI;
 
 import javax.swing.JPanel;
 
-public class MainMenu implements GUIFrame{
+import GUI.Interface.IGUIFrame;
+
+public class MainMenu implements IGUIFrame{
 	
 	JPanel panel;
 	
