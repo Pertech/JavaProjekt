@@ -1,8 +1,10 @@
 package GUI;
 
+import javax.swing.JPanel;
+
 public interface GUIFrame {
 	
-	void loadGUI();	
-	void updateGUI();
+	JPanel loadGUI();	
+	JPanel updateGUI();
 	
 }
