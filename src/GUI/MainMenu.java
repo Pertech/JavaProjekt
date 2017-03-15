@@ -36,7 +36,7 @@ public class MainMenu extends JFrame implements IGUIFrame, ActionListener{
 	}
 	
 	public void exit(){
-		
+		System.exit(0);
 	}
 
 	@Override
@@ -45,19 +45,21 @@ public class MainMenu extends JFrame implements IGUIFrame, ActionListener{
 		
 		panel = new JPanel();
 		panel.setLayout(null);
-		panel.setSize(1000, 550);
+		panel.setSize(1006, 585);
 		
 
 		start = new JButton();
 		start.setBounds(275, 200, 450, 60);
 		ImageIcon image_start = new ImageIcon("res/start_button.png");
 		start.setIcon(image_start);
+		start.addActionListener(this);
 		panel.add(start);
 		
 		exit = new JButton();
 		exit.setBounds(275, 290, 450, 60);
 		ImageIcon image_exit = new ImageIcon("res/exit_button.png");
 		exit.setIcon(image_exit);
+		exit.addActionListener(this);
 		panel.add(exit);
 		
 		
