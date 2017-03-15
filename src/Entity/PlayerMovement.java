@@ -7,7 +7,8 @@ import WorldObject.WorldObjectSingleton;
 
 public class PlayerMovement implements KeyListener{
 	
-	Player player;
+	private Player player;
+	private int speed = 3;
 	
 	public PlayerMovement(Player p) {
 		// TODO Auto-generated constructor stub
@@ -19,23 +20,23 @@ public class PlayerMovement implements KeyListener{
 		int x = 0;
 		int y = 0;
 		if(e.getKeyCode() == KeyEvent.VK_W){
-			y--;
+			y -= 3;
 		}
 		if(e.getKeyCode() == KeyEvent.VK_S){
-			y++;
+			y += 3;
 		}
 		if(e.getKeyCode() == KeyEvent.VK_A){
-			x--;
+			x -= 3;
 		}
 		if(e.getKeyCode() == KeyEvent.VK_D){
-			x++;
+			x += 3;
 		}
 		
 		WorldObjectSingleton.getInstance().checkCollision(player, x, y);
 		
 		if(player.canMove()){
 			player.setPosX(player.getPosX() + x);
-			player.setPosX(player.getPosY() + y);
+			player.setPosY(player.getPosY() + y);
 		}
 	}
 
