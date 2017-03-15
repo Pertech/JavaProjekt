@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 
 import GUI.Interface.IGUIFrame;
 
-public class MainMenu extends JFrame implements IGUIFrame, ActionListener{
+public class MainMenu implements IGUIFrame, ActionListener{
 	
 
 	JPanel panel;
@@ -28,11 +28,11 @@ public class MainMenu extends JFrame implements IGUIFrame, ActionListener{
 	JLabel title, background;
 	
 	public MainMenu(){
-		
+		loadGUI();
 	}
 	
 	public void startGame(){
-		
+		FrameManager.nextRoom();
 	}
 	
 	public void exit(){
@@ -85,7 +85,6 @@ public class MainMenu extends JFrame implements IGUIFrame, ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
 		if(e.getSource() == start){
 			this.startGame();
 		}
