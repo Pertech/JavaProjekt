@@ -12,12 +12,12 @@ public class Player extends Entity {
 	
 	public Player(int posX, int posY, int sizeX, int sizeY) throws IOException {
 		super(ImageIO.read(new File("res/player.png")), posX, posY, sizeX, sizeY);
-		pm = new PlayerMovement(this);
+		//pm = new PlayerMovement(this);
 		// TODO Auto-generated constructor stub
 	}
 
-	public KeyListener getPlayerMovement() {
+	/*public KeyListener getPlayerMovement() {
 		return pm;
-	}
+	}*/
 
 }

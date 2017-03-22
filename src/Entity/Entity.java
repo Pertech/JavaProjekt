@@ -55,6 +55,10 @@ public abstract class Entity {
 	public int getSizeY() {
 		return sizeY;
 	}
+	
+	public void onCollision(Entity e){
+		e.setCanMove(false);
+	}
 
 	
 }

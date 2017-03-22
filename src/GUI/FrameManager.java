@@ -1,40 +1,78 @@
 package GUI;
 
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+import javax.swing.Timer;
+import javax.swing.plaf.SliderUI;
 
 import GUI.Interface.IGUIFrame;
 
 public class FrameManager {
 	
-	private static JFrame frame = new JFrame();
-	private static IGUIFrame menu = new MainMenu();
-	private static IGUIFrame gameOver = new GameOver();
-	private static IGUIFrame room = new Room();
+	private static JFrame frame;
+	private static IGUIFrame actualRoom = null;
+	private static IGUIFrame actualFrame = null;
+	private static boolean running = true;
 	
 	public FrameManager(String title){
-		frame.setTitle(title);
+		SwingUtilities.invokeLater(new Runnable() {
+			
+			@Override
+			public void run() {
+				frame = new JFrame();
+				frame.setTitle(title);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.setResizable(false);
+				frame.setBounds(0, 0, 1006, 585);
+
+				actualFrame = new MainMenu();
+				frame.setContentPane(actualFrame.loadGUI());
+				frame.setVisible(true);
+
+				
+				Timer t = new Timer(10, new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						actualFrame.updateGUI();
+						
+					}
+				});
+				t.start();
+			}
+		});
 		
-		frame.setBounds(0, 0, 1006, 585);
-
-		MainMenu menu = new MainMenu();
-		frame.setContentPane(menu.loadGUI());
-
-		frame.setVisible(true);
 	}
 	
 	public static void nextRoom(){
-		frame.setContentPane(room.loadGUI());
+		actualFrame = new Room(3);
+		actualRoom = actualFrame;
+		actualFrame.loadGUI();
+		frame.setContentPane((Container) actualFrame);
+		//frame.addKeyListener(((Room) actualFrame).getPlayer().getPlayerMovement());
 		frame.setVisible(true);
 	}
 
 	public static void mainMenu(){
-		frame.setContentPane(menu.loadGUI());
+		actualFrame = new MainMenu();
+		frame.setContentPane(actualFrame.loadGUI());
 		frame.setVisible(true);
 	}
 	
 	public static void gameOver(){
-		frame.setContentPane(gameOver.loadGUI());
+		//frame.removeKeyListener(((Room) actualRoom).getPlayer().getPlayerMovement());
+		actualFrame = new GameOver();
+		frame.setContentPane(actualFrame.loadGUI());
 		frame.setVisible(true);
+	}
+
+	public static IGUIFrame getActualFrame() {
+		return actualFrame;
 	}
 	
 }

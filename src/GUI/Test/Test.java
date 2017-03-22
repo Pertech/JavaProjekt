@@ -6,6 +6,7 @@ import java.io.IOException;
 import javax.swing.JFrame;
 
 import Entity.Player;
+import GUI.FrameManager;
 import GUI.LevelFactory;
 import GUI.Room;
 import GUI.Interface.IGUIFrame;
@@ -14,17 +15,11 @@ import WorldObject.WorldObjectSingleton;
 public class Test {
 	private static boolean running = true;
 	public static void main(String[] args) {
-		try {
-			WorldObjectSingleton.getInstance().createWorldObjectFromArray(LevelFactory.getInstance().loadLevel().getLevel(0));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		JFrame frame = new JFrame("Game");
+		/*JFrame frame = new JFrame("Game");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(0, 0, 1006, 585);
 		frame.setResizable(false);
-		IGUIFrame levelTest = new Room();
+		IGUIFrame levelTest = new Room(2);
 		levelTest.loadGUI();
 		frame.setContentPane((Container) levelTest);
 		frame.setVisible(true);
@@ -34,6 +29,8 @@ public class Test {
 			levelTest.updateGUI();
 		}
 		
-		System.exit(0);
+		System.exit(0);*/
+		
+		FrameManager fm = new FrameManager("Game");
 	}
 }
