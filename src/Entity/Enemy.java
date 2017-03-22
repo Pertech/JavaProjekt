@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import GUI.FrameManager;
 import GUI.Interface.IMovement;
 
 public class Enemy extends Entity {
@@ -20,6 +21,14 @@ public class Enemy extends Entity {
 
 	public IMovement getMovement() {
 		return movement;
+	}
+	
+	@Override
+	public void onCollision(Entity e){
+		if(e instanceof Player){
+			FrameManager.startFight(this);
+		}
+		e.setCanMove(false);
 	}
 	
 }

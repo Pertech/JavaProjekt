@@ -2,6 +2,8 @@ package Entity;
 
 import java.awt.Image;
 
+import GUI.FrameManager;
+
 public abstract class Entity {
 	
 	private Image image;
@@ -57,7 +59,7 @@ public abstract class Entity {
 	}
 	
 	public void onCollision(Entity e){
-		e.setCanMove(false);
+		setCanMove(false);
 	}
 
 	

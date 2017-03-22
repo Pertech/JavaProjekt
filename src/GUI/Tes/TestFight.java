@@ -7,7 +7,7 @@ import GUI.GameOver;
 import GUI.Interface.IGUIFrame;
 
 public class TestFight {
-	static JFrame frame;
+	/*static JFrame frame;
 	static IGUIFrame fight = new Fight();
 	
 	public static void main(String[] args) {
@@ -15,5 +15,5 @@ public class TestFight {
 		frame.setBounds(0, 0, 324, 375);
 		frame.setContentPane(fight.loadGUI());
 		frame.setVisible(true);
-	}
+	}*/
 }

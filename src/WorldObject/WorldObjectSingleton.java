@@ -35,6 +35,10 @@ public class WorldObjectSingleton {
 	public void addWorldObject(WorldObject wo){
 		worldObjects.add(wo);
 	}
+
+	public void removeWorldObject(WorldObject wo){
+		worldObjects.remove(wo);
+	}
 	
 	public void clearWorldObjects(){
 		worldObjects.clear();

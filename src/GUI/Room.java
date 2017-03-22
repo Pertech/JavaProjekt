@@ -19,6 +19,7 @@ import Entity.EnemySingleton;
 import Entity.NewPlayerMovement;
 import Entity.Player;
 import GUI.Interface.IGUIFrame;
+import WorldObject.Door;
 import WorldObject.WorldObject;
 import WorldObject.WorldObjectSingleton;
 
@@ -26,6 +27,7 @@ public class Room extends JPanel implements IGUIFrame{
 	
 	private Player player;
 	private int enemyCount;
+	private Enemy enemyToRemove;
 	
 	public Room(int enemyCount){
 		this.enemyCount = enemyCount;
@@ -78,15 +80,40 @@ public class Room extends JPanel implements IGUIFrame{
 		// TODO Auto-generated method stub
 		Random rand = new Random(); 
 		for(Enemy e : EnemySingleton.getInstance().getEnemies()){
-			if(rand.nextInt(10) == 0){
+			if(rand.nextInt(20) == 0){
 				e.getMovement().changeDirection();
 			}
 			e.getMovement().move();
+		}
+		if(enemyToRemove != null){
+			EnemySingleton.getInstance().removeEnemy(enemyToRemove);
+			enemyCount = EnemySingleton.getInstance().getEnemies().size();
+			if(enemyCount == 0){
+				removeDoor();
+			}
+			enemyToRemove = null;
 		}
 		repaint();
 		return this;
 	}
 
+	private void removeDoor(){
+		WorldObject door = null;
+		for(WorldObject wo : WorldObjectSingleton.getInstance().getWorldObjects()){
+			if(wo instanceof Door){
+				door = wo;
+			}
+		}
+		if(door != null){
+			WorldObjectSingleton.getInstance().removeWorldObject(door);
+		}
+		
+	}
+	
+	public void removeEnemy(Enemy e){
+		enemyToRemove = e;
+	}
+	
 	@Override
 	protected void paintComponent(Graphics g){
 		super.paintComponent(g);

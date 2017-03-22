@@ -6,6 +6,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import GUI.FrameManager;
+
 public class Player extends Entity {
 
 	private KeyListener pm;
@@ -19,5 +21,13 @@ public class Player extends Entity {
 	/*public KeyListener getPlayerMovement() {
 		return pm;
 	}*/
+	
+	@Override
+	public void onCollision(Entity e){
+		if(e instanceof Enemy){
+			FrameManager.startFight((Enemy) e);
+		}
+		e.setCanMove(false);
+	}
 
 }

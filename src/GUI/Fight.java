@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Entity.Enemy;
 import GUI.Interface.IGUIFrame;
 
 public class Fight extends JFrame implements IGUIFrame, ActionListener{
@@ -21,13 +22,16 @@ public class Fight extends JFrame implements IGUIFrame, ActionListener{
 	
 	private int clicks, seconds;
 	private String str_clicks;
+	private Enemy enemy;
 
-	public Fight(){
+	public Fight(Enemy e){
 		loadGUI();
+		this.enemy = e;
 	}
 
 	@Override
 	public JPanel loadGUI() {
+		FrameManager.backToRoom(enemy);
 		panel = new JPanel();
 		panel.setLayout(null);
 		panel.setSize(308, 337);

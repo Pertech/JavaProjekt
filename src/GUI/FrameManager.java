@@ -10,12 +10,13 @@ import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.plaf.SliderUI;
 
+import Entity.Enemy;
 import GUI.Interface.IGUIFrame;
 
 public class FrameManager {
 	
 	private static JFrame frame;
-	private static IGUIFrame actualRoom = null;
+	private static Room actualRoom = null;
 	private static IGUIFrame actualFrame = null;
 	private static boolean running = true;
 	
@@ -51,13 +52,28 @@ public class FrameManager {
 	
 	public static void nextRoom(){
 		actualFrame = new Room(3);
-		actualRoom = actualFrame;
+		actualRoom = (Room) actualFrame;
 		actualFrame.loadGUI();
 		frame.setContentPane((Container) actualFrame);
 		//frame.addKeyListener(((Room) actualFrame).getPlayer().getPlayerMovement());
 		frame.setVisible(true);
 	}
 
+	public static void startFight(Enemy e){
+		actualFrame = new Fight(e);
+		actualFrame.loadGUI();
+		frame.setContentPane((Container) actualFrame);
+		frame.setVisible(true);
+	}
+
+	public static void backToRoom(Enemy e){
+		actualRoom.removeEnemy(e);
+		actualFrame = actualRoom;
+		//actualFrame.loadGUI();
+		frame.setContentPane((Container) actualFrame);
+		frame.setVisible(true);
+	}
+	
 	public static void mainMenu(){
 		actualFrame = new MainMenu();
 		frame.setContentPane(actualFrame.loadGUI());
