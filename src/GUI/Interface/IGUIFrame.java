@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 public interface IGUIFrame {
 	
-	JPanel loadGUI();	
-	JPanel updateGUI();
+	void loadGUI();	
+	void updateGUI();
 	
 }

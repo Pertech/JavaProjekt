@@ -20,10 +20,9 @@ import javax.swing.JTextField;
 
 import GUI.Interface.IGUIFrame;
 
-public class MainMenu implements IGUIFrame, ActionListener{
+public class MainMenu extends JPanel implements IGUIFrame, ActionListener{
 	
 
-	JPanel panel;
 	JButton start, exit;
 	JLabel title, background;
 	
@@ -40,12 +39,11 @@ public class MainMenu implements IGUIFrame, ActionListener{
 	}
 
 	@Override
-	public JPanel loadGUI() {
+	public void loadGUI() {
 
 		
-		panel = new JPanel();
-		panel.setLayout(null);
-		panel.setSize(1006, 585);
+		setLayout(null);
+		setSize(1006, 585);
 		
 
 		start = new JButton();
@@ -53,34 +51,32 @@ public class MainMenu implements IGUIFrame, ActionListener{
 		ImageIcon image_start = new ImageIcon("res/start_button.png");
 		start.setIcon(image_start);
 		start.addActionListener(this);
-		panel.add(start);
+		add(start);
 		
 		exit = new JButton();
 		exit.setBounds(275, 290, 450, 60);
 		ImageIcon image_exit = new ImageIcon("res/exit_button.png");
 		exit.setIcon(image_exit);
 		exit.addActionListener(this);
-		panel.add(exit);
+		add(exit);
 		
 		
 		title = new JLabel("JavaGame");
 		title.setBounds(372, 40, 255, 50);
 		title.setFont(new Font("Calibri", Font.BOLD, 60));
 		title.setForeground(Color.WHITE);
-		panel.add(title);
+		add(title);
 		
 		
 		ImageIcon image_bg = new ImageIcon("res/background.jpg");
 	    background = new JLabel("", image_bg, JLabel.CENTER);
-	    background.setBounds(0, 0, panel.getSize().width, panel.getSize().height);
-	    panel.add(background);
+	    background.setBounds(0, 0, getSize().width, getSize().height);
+	    add(background);
 		
-		return panel;
 	}
 
 	@Override
-	public JPanel updateGUI() {
-		return panel;
+	public void updateGUI() {
 	}
 
 	@Override
@@ -90,6 +86,7 @@ public class MainMenu implements IGUIFrame, ActionListener{
 		}
 		else if(e.getSource() == exit){
 			this.exit();
-		}		
+		}
+		
 	}
 }

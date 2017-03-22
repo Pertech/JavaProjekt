@@ -10,9 +10,9 @@ public class TestGameOver {
 	static IGUIFrame gameOver = new GameOver();
 	
 	public static void main(String[] args) {
-		frame = new JFrame();
+		/*frame = new JFrame();
 		frame.setBounds(0, 0, 1006, 585);
 		frame.setContentPane(gameOver.loadGUI());
-		frame.setVisible(true);
+		frame.setVisible(true);*/
 	}
 }

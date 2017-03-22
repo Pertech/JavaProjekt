@@ -59,7 +59,7 @@ public class Room extends JPanel implements IGUIFrame{
 	}
 	
 	@Override
-	public JPanel loadGUI() {
+	public void loadGUI() {
 		setFocusable(true);
 		try {
 			WorldObjectSingleton.getInstance().createWorldObjectFromArray(LevelFactory.getInstance().loadLevel().getLevel(0));
@@ -72,11 +72,10 @@ public class Room extends JPanel implements IGUIFrame{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return this;
 	}
 
 	@Override
-	public JPanel updateGUI() {
+	public void updateGUI() {
 		// TODO Auto-generated method stub
 		Random rand = new Random(); 
 		for(Enemy e : EnemySingleton.getInstance().getEnemies()){
@@ -94,7 +93,6 @@ public class Room extends JPanel implements IGUIFrame{
 			enemyToRemove = null;
 		}
 		repaint();
-		return this;
 	}
 
 	private void removeDoor(){

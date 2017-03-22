@@ -32,7 +32,8 @@ public class FrameManager {
 				frame.setBounds(0, 0, 1006, 585);
 
 				actualFrame = new MainMenu();
-				frame.setContentPane(actualFrame.loadGUI());
+				//actualFrame.loadGUI();
+				frame.setContentPane((Container) actualFrame);
 				frame.setVisible(true);
 
 				
@@ -60,8 +61,8 @@ public class FrameManager {
 	}
 
 	public static void startFight(Enemy e){
-		actualFrame = new Fight(e);
-		actualFrame.loadGUI();
+		actualFrame = new Fight(e, 16, 10);
+		//actualFrame.loadGUI();
 		frame.setContentPane((Container) actualFrame);
 		frame.setVisible(true);
 	}
@@ -69,21 +70,23 @@ public class FrameManager {
 	public static void backToRoom(Enemy e){
 		actualRoom.removeEnemy(e);
 		actualFrame = actualRoom;
-		//actualFrame.loadGUI();
+		actualFrame.loadGUI();
 		frame.setContentPane((Container) actualFrame);
 		frame.setVisible(true);
 	}
 	
 	public static void mainMenu(){
 		actualFrame = new MainMenu();
-		frame.setContentPane(actualFrame.loadGUI());
+		//actualFrame.loadGUI();
+		frame.setContentPane((Container) actualFrame);
 		frame.setVisible(true);
 	}
 	
 	public static void gameOver(){
 		//frame.removeKeyListener(((Room) actualRoom).getPlayer().getPlayerMovement());
 		actualFrame = new GameOver();
-		frame.setContentPane(actualFrame.loadGUI());
+		//actualFrame.loadGUI();
+		frame.setContentPane((Container) actualFrame);
 		frame.setVisible(true);
 	}
 
