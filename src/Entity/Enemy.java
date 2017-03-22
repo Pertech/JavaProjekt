@@ -16,6 +16,7 @@ import GUI.Interface.IMovement;
 public class Enemy extends Entity {
 
 	private IMovement movement;
+	private boolean readyForFight = true;
 	
 	public Enemy(int posX, int posY, int sizeX, int sizeY) throws IOException {
 		super(ImageIO.read(new File("res/enemy.png")), posX, posY, sizeX, sizeY);
@@ -23,6 +24,20 @@ public class Enemy extends Entity {
 		
 		movement = new EnemyMovement(this);
 	}
+	
+	
+
+	public boolean isReadyForFight() {
+		return readyForFight;
+	}
+
+
+
+	public void setReadyForFight(boolean readyForFight) {
+		this.readyForFight = readyForFight;
+	}
+
+
 
 	public IMovement getMovement() {
 		return movement;
@@ -31,7 +46,9 @@ public class Enemy extends Entity {
 	@Override
 	public void onCollision(Entity e){
 		if(e instanceof Player){
-			FrameManager.startFight(this);
+			if(isReadyForFight()){
+				FrameManager.startFight(this);
+			}
 		}
 		e.setCanMove(false);
 	}

@@ -25,7 +25,9 @@ public class Player extends Entity {
 	@Override
 	public void onCollision(Entity e){
 		if(e instanceof Enemy){
-			FrameManager.startFight((Enemy) e);
+			if(((Enemy) e).isReadyForFight()){
+				FrameManager.startFight((Enemy) e);
+			}
 		}
 		e.setCanMove(false);
 	}

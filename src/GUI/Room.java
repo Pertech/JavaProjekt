@@ -135,6 +135,7 @@ public class Room extends JPanel implements IGUIFrame{
 	
 	public void removeEnemy(Enemy e){
 		enemyToRemove = e;
+		e.setReadyForFight(false);
 	}
 	
 	@Override
