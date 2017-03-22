@@ -74,7 +74,6 @@ public class FrameManager {
 	public static void backToRoom(Enemy e){
 		actualRoom.removeEnemy(e);
 		actualFrame = actualRoom;
-		actualFrame.loadGUI();
 		frame.setContentPane((Container) actualFrame);
 		frame.setVisible(true);
 	}
