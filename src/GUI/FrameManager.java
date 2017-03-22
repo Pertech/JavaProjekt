@@ -65,7 +65,7 @@ public class FrameManager {
 	}
 
 	public static void startFight(Enemy e){
-		actualFrame = new Fight(e, 16, 10);
+		actualFrame = new Fight(e, 10, roomNumber * 10);
 		//actualFrame.loadGUI();
 		frame.setContentPane((Container) actualFrame);
 		frame.setVisible(true);

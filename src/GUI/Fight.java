@@ -17,6 +17,8 @@ import java.util.TimerTask;
 
 import Entity.Enemy;
 import GUI.Interface.IGUIFrame;
+import Music.MusicPlayer;
+import Music.SoundEffectPlayer;
 
 public class Fight extends JPanel implements IGUIFrame, ActionListener{
 	
@@ -30,9 +32,10 @@ public class Fight extends JPanel implements IGUIFrame, ActionListener{
 	private static int seconds, i_clicksToBeat;
 	private String str_clicks, str_seconds, str_clicksToBeat;
 	private Enemy enemy;
+	private SoundEffectPlayer effectPlayer;
 
 	public Fight(Enemy e, int secs, int clicks){
-		
+		effectPlayer = new SoundEffectPlayer();
 	    seconds = secs;
 	    i_clicksToBeat = clicks;
 		loadGUI();
@@ -113,11 +116,12 @@ public class Fight extends JPanel implements IGUIFrame, ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == button_click){
+			effectPlayer.playSoundEffect("res/hit.wav");
+			clicks++;
 		    if (this.clicks >= i_clicksToBeat){
 		        timer.cancel();
 		    	FrameManager.backToRoom(this.enemy);
 		    }
-			clicks++;
 			str_clicks = Integer.toString(clicks);
 			countClicks.setText(str_clicks);
 			repaint();
