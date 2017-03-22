@@ -67,7 +67,7 @@ public class Room extends JPanel implements IGUIFrame{
 	}
 	
 	@Override
-	public JPanel loadGUI() {
+	public void loadGUI() {
 		setFocusable(true);
 		
 		JLabel roomNumberLabel = new JLabel("Room: " + String.valueOf(roomNumber));
@@ -95,11 +95,10 @@ public class Room extends JPanel implements IGUIFrame{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return this;
 	}
 
 	@Override
-	public JPanel updateGUI() {
+	public void updateGUI() {
 		// TODO Auto-generated method stub
 		Random rand = new Random(); 
 		for(Enemy e : EnemySingleton.getInstance().getEnemies()){
@@ -119,7 +118,6 @@ public class Room extends JPanel implements IGUIFrame{
 		}
 		
 		repaint();
-		return this;
 	}
 
 	private void removeDoor(){

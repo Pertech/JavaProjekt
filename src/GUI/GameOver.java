@@ -13,9 +13,8 @@ import javax.swing.JPanel;
 
 import GUI.Interface.IGUIFrame;
 
-public class GameOver implements IGUIFrame, ActionListener{
+public class GameOver extends JPanel implements IGUIFrame, ActionListener{
 	
-	JPanel panel;
 	JLabel gameOver, background;
 	JButton mainMenu;
 	
@@ -24,31 +23,29 @@ public class GameOver implements IGUIFrame, ActionListener{
 	}
 	
 	@Override
-	public JPanel loadGUI() {
+	public void loadGUI() {
 		
-		panel = new JPanel();
-		panel.setLayout(null);
-		panel.setSize(1006, 585);
+		
+		setLayout(null);
+		setSize(1006, 585);
 		
 		gameOver = new JLabel("GameOver");
 		gameOver.setBounds(280, 100, 500, 100);
 		gameOver.setFont(new Font("Calibri", Font.BOLD, 100));
 		gameOver.setForeground(Color.WHITE);
-		panel.add(gameOver);
+		add(gameOver);
 		
 		mainMenu = new JButton();
 		mainMenu.setBounds(275, 300, 450, 60);
 		ImageIcon image_start = new ImageIcon("res/mainMenu_button.png");
 		mainMenu.setIcon(image_start);
 		mainMenu.addActionListener(this);
-		panel.add(mainMenu);
+		add(mainMenu);
 		
 		ImageIcon image_bg = new ImageIcon("res/background.jpg");
 	    background = new JLabel("", image_bg, JLabel.CENTER);
-	    background.setBounds(0, 0, panel.getSize().width, panel.getSize().height);
-	    panel.add(background);
-		
-		return panel;
+	    background.setBounds(0, 0, getSize().width, getSize().height);
+	    add(background);
 	}
 
 	@Override
@@ -59,8 +56,8 @@ public class GameOver implements IGUIFrame, ActionListener{
 	}
 
 	@Override
-	public JPanel updateGUI() {
-		return panel;
+	public void updateGUI() {
+		
 	}
 
 }
