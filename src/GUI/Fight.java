@@ -56,6 +56,7 @@ public class Fight extends JPanel implements IGUIFrame, ActionListener{
 	}
 	
 	private static final int setInterval() {
+		//hallo
 	    if (seconds == 1){
 	        timer.cancel();
 	    	FrameManager.gameOver();
@@ -113,6 +114,7 @@ public class Fight extends JPanel implements IGUIFrame, ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == button_click){
+			
 		    if (this.clicks >= i_clicksToBeat){
 		        timer.cancel();
 		    	FrameManager.backToRoom(this.enemy);
