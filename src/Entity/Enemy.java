@@ -8,6 +8,11 @@ import javax.imageio.ImageIO;
 import GUI.FrameManager;
 import GUI.Interface.IMovement;
 
+/**
+ * 
+ * @author Micha
+ *
+ */
 public class Enemy extends Entity {
 
 	private IMovement movement;
