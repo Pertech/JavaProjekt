@@ -8,7 +8,9 @@ import java.util.Random;
 import Entity.Enemy;
 import Entity.Entity;
 import Entity.Player;
+import GUI.FrameManager;
 import WorldObject.Ground;
+import WorldObject.NextLevel;
 import WorldObject.WorldObject;
 import WorldObject.WorldObjectSingleton;
 
@@ -40,12 +42,21 @@ public class CollisionDetection {
 
 	public void checkCollision(Entity e, List<Enemy> enemies, int x, int y){
 		e.setCanMove(true);
+		boolean nextRoom = false;
 		Rectangle entityRect = new Rectangle(e.getPosX() + x, e.getPosY() + y, e.getSizeX(), e.getSizeY());
 		for (WorldObject wo : WorldObjectSingleton.getInstance().getWorldObjects()) {
 			Rectangle woRect = new Rectangle(wo.getPosX(), wo.getPosY(), 50, 50);
 			if (entityRect.intersects(woRect)) {
-				wo.onCollision(e);
+				if(wo instanceof NextLevel){
+					nextRoom = true;
+				} else {
+					wo.onCollision(e);
+				}
 			}
+		}
+		
+		if (nextRoom){
+			FrameManager.nextRoom();
 		}
 		
 		for (Enemy en : enemies) {

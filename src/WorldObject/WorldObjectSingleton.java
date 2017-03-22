@@ -60,6 +60,14 @@ public class WorldObjectSingleton {
 					addWorldObject(new Door(y * 50, x * 50));
 					break;
 					
+				case 3:
+					addWorldObject(new LastRoomDoor(y * 50, x * 50));
+					break;
+					
+				case 4:
+					addWorldObject(new NextLevel(y * 50, x * 50));
+					break;
+					
 				default:
 					break;
 				}

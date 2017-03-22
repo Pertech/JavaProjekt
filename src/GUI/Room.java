@@ -1,5 +1,7 @@
 package GUI;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
@@ -10,8 +12,10 @@ import java.util.Random;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
+import javax.swing.SwingConstants;
 
 import Collision.CollisionDetection;
 import Entity.Enemy;
@@ -28,9 +32,13 @@ public class Room extends JPanel implements IGUIFrame{
 	private Player player;
 	private int enemyCount;
 	private Enemy enemyToRemove;
+	private int roomNumber;
+	private JLabel enemiesNumberLabel;
 	
-	public Room(int enemyCount){
+	public Room(int enemyCount, int roomNumber){
 		this.enemyCount = enemyCount;
+		this.roomNumber = roomNumber;
+		this.setLayout(null);
 	}
 	
 	private void setKeyBindings() {
@@ -61,8 +69,23 @@ public class Room extends JPanel implements IGUIFrame{
 	@Override
 	public JPanel loadGUI() {
 		setFocusable(true);
+		
+		JLabel roomNumberLabel = new JLabel("Room: " + String.valueOf(roomNumber));
+		roomNumberLabel.setFont(new Font("Calibri", Font.BOLD, 30));
+		roomNumberLabel.setForeground(Color.WHITE);
+		roomNumberLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		roomNumberLabel.setBounds(0,0,1000,50);
+		this.add(roomNumberLabel);
+
+		enemiesNumberLabel = new JLabel("Enemies left: " + String.valueOf(enemyCount));
+		enemiesNumberLabel.setFont(new Font("Calibri", Font.BOLD, 30));
+		enemiesNumberLabel.setForeground(Color.WHITE);
+		enemiesNumberLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		enemiesNumberLabel.setBounds(0,500,1000,50);
+		this.add(enemiesNumberLabel);
+		
 		try {
-			WorldObjectSingleton.getInstance().createWorldObjectFromArray(LevelFactory.getInstance().loadLevel().getLevel(0));
+			WorldObjectSingleton.getInstance().createWorldObjectFromArray(LevelFactory.getInstance().loadLevel().getLevel(roomNumber));
 			player = new Player(50, 250, 40, 40);
 			setKeyBindings();
 			CollisionDetection.getInstance().setPlayer(player);
@@ -92,7 +115,9 @@ public class Room extends JPanel implements IGUIFrame{
 				removeDoor();
 			}
 			enemyToRemove = null;
+			enemiesNumberLabel.setText("Enemies left: " + String.valueOf(enemyCount));
 		}
+		
 		repaint();
 		return this;
 	}

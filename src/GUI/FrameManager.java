@@ -12,6 +12,7 @@ import javax.swing.plaf.SliderUI;
 
 import Entity.Enemy;
 import GUI.Interface.IGUIFrame;
+import Music.MusicPlayer;
 
 public class FrameManager {
 	
@@ -19,12 +20,14 @@ public class FrameManager {
 	private static Room actualRoom = null;
 	private static IGUIFrame actualFrame = null;
 	private static boolean running = true;
+	private static int roomNumber = 0;
 	
 	public FrameManager(String title){
 		SwingUtilities.invokeLater(new Runnable() {
 			
 			@Override
 			public void run() {
+				MusicPlayer musicPlayer = new MusicPlayer(new String[]{"res/Itty_Bitty_8_Bit.wav"});
 				frame = new JFrame();
 				frame.setTitle(title);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,7 +54,8 @@ public class FrameManager {
 	}
 	
 	public static void nextRoom(){
-		actualFrame = new Room(3);
+		roomNumber++;
+		actualFrame = new Room(3, roomNumber);
 		actualRoom = (Room) actualFrame;
 		actualFrame.loadGUI();
 		frame.setContentPane((Container) actualFrame);
