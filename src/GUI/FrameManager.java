@@ -86,7 +86,6 @@ public class FrameManager {
 	}
 	
 	public static void gameOver(){
-		//frame.removeKeyListener(((Room) actualRoom).getPlayer().getPlayerMovement());
 		actualFrame = new GameOver();
 		//actualFrame.loadGUI();
 		frame.setContentPane((Container) actualFrame);
