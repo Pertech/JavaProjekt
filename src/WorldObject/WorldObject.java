@@ -1,6 +1,7 @@
 package WorldObject;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 
 import Entity.Entity;
 
@@ -32,5 +33,5 @@ public abstract class WorldObject {
 	public void onCollision(Entity e){
 		e.setCanMove(false);
 	}
-	
+
 }

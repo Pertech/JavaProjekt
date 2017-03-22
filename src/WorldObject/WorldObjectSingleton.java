@@ -35,6 +35,10 @@ public class WorldObjectSingleton {
 	public void addWorldObject(WorldObject wo){
 		worldObjects.add(wo);
 	}
+
+	public void removeWorldObject(WorldObject wo){
+		worldObjects.remove(wo);
+	}
 	
 	public void clearWorldObjects(){
 		worldObjects.clear();
@@ -59,17 +63,6 @@ public class WorldObjectSingleton {
 				default:
 					break;
 				}
-			}
-		}
-	}
-	
-	public void checkCollision(Entity e, int x, int y){
-		e.setCanMove(true);
-		Rectangle playerRect = new Rectangle(e.getPosX() + x, e.getPosY() + y, e.getSizeX(), e.getSizeY());
-		for (WorldObject wo : WorldObjectSingleton.getInstance().getWorldObjects()) {
-			Rectangle woRect = new Rectangle(wo.getPosX(), wo.getPosY(), 50, 50);
-			if (playerRect.intersects(woRect)) {
-				wo.onCollision(e);
 			}
 		}
 	}

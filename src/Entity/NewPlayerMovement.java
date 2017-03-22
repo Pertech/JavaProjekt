@@ -1,35 +1,39 @@
 package Entity;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
+import javax.swing.AbstractAction;
 
 import Collision.CollisionDetection;
 import WorldObject.WorldObjectSingleton;
 
-public class PlayerMovement implements KeyListener{
+public class NewPlayerMovement extends AbstractAction{
 	
 	private Player player;
 	private int speed = 3;
 	
-	public PlayerMovement(Player p) {
+	public NewPlayerMovement(String actionCommand, Player p) {
 		// TODO Auto-generated constructor stub
 		player = p;
+		putValue(ACTION_COMMAND_KEY, actionCommand);
 	}
-	
+
 	@Override
-	public void keyPressed(KeyEvent e) {
+	public void actionPerformed(ActionEvent e) {
 		int x = 0;
 		int y = 0;
-		if(e.getKeyCode() == KeyEvent.VK_W){
+		if(e.getActionCommand().equalsIgnoreCase("VK_W")){
 			y -= speed;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_S){
+		if(e.getActionCommand().equalsIgnoreCase("VK_S")){
 			y += speed;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_A){
+		if(e.getActionCommand().equalsIgnoreCase("VK_A")){
 			x -= speed;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_D){
+		if(e.getActionCommand().equalsIgnoreCase("VK_D")){
 			x += speed;
 		}
 		
@@ -39,15 +43,5 @@ public class PlayerMovement implements KeyListener{
 			player.setPosX(player.getPosX() + x);
 			player.setPosY(player.getPosY() + y);
 		}
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		
 	}
 }
