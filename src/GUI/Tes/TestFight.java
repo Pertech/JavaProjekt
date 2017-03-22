@@ -12,7 +12,7 @@ public class TestFight {
 	
 	public static void main(String[] args) {
 		frame = new JFrame();
-		frame.setBounds(0, 0, 324, 375);
+		frame.setBounds(0, 0, 1006, 585);
 		frame.setContentPane(fight.loadGUI());
 		frame.setVisible(true);
 	}

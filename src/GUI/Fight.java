@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import GUI.Interface.IGUIFrame;
 
@@ -30,12 +31,12 @@ public class Fight extends JFrame implements IGUIFrame, ActionListener{
 	public JPanel loadGUI() {
 		panel = new JPanel();
 		panel.setLayout(null);
-		panel.setSize(308, 337);
+		panel.setSize(1000, 550);
 		
 
 		
 		button_click = new JButton();
-		button_click.setBounds(0, 0, 308, 337);
+		button_click.setBounds(0, 0, 990, 548);
 //		ImageIcon image_start = new ImageIcon("res/background_fight.");
 //		button_click.setIcon(image_start);
 		button_click.setOpaque(false);
@@ -47,9 +48,10 @@ public class Fight extends JFrame implements IGUIFrame, ActionListener{
 		countClicks = new JLabel("");
 		str_clicks = Integer.toString(clicks);
 		countClicks.setText(str_clicks);
-		countClicks.setBounds(110, 140, 500, 100);
-		countClicks.setFont(new Font("Calibri", Font.BOLD, 100));
-		countClicks.setForeground(Color.WHITE);
+		countClicks.setBounds(0, 260, 1000, 100);
+		countClicks.setFont(new Font("Calibri", Font.BOLD, 120));
+		countClicks.setHorizontalAlignment(SwingConstants.CENTER);
+		countClicks.setForeground(Color.RED);
 		panel.add(countClicks);
 		
 		
