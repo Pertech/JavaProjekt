@@ -26,7 +26,13 @@ import GUI.Interface.IGUIFrame;
 import WorldObject.Door;
 import WorldObject.WorldObject;
 import WorldObject.WorldObjectSingleton;
-
+/**
+ * 
+ * @author Micha Meystre
+ * @version 1.0
+ * Erstellt das GUI für den Room (also Level). Nimmt den aufbau für das Level als 2-Dimensionales Array entgegen und baut es so auf. Es erstellt auch die Enemys
+ * 
+ */
 public class Room extends JPanel implements IGUIFrame{
 	
 	private Player player;

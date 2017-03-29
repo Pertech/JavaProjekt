@@ -14,6 +14,13 @@ import Entity.Enemy;
 import GUI.Interface.IGUIFrame;
 import Music.MusicPlayer;
 
+/**
+ * 
+ * @author Micha Meystre/Loic Jermann
+ * @version 1.0
+ * Der Framemanager verwaltet alle GUIs. Mit ihm kann man von einem GUI zu einem anderen wechseln.
+ *
+ */
 public class FrameManager {
 	
 	private static JFrame frame;
@@ -22,6 +29,11 @@ public class FrameManager {
 	private static boolean running = true;
 	private static int roomNumber = 0;
 	
+	/**
+	 * Konstruktor von Framemanager: Der wird aufgerufen, wenn das Spiel zum ersten mal gestartet wird. Er erstellt ein Fenster und macht das Panel
+	 * vom MainMenu hinein. Er startet auch den MusicPlayer
+	 * @param title Tittel des Programmes (wird oben in der Leiste angezeigt)
+	 */
 	public FrameManager(String title){
 		SwingUtilities.invokeLater(new Runnable() {
 			
@@ -54,6 +66,9 @@ public class FrameManager {
 		
 	}
 	
+	/**
+	 * Wechselt zu dem nächsten Raum
+	 */
 	public static void nextRoom(){
 		roomNumber++;
 		actualFrame = new Room(3, roomNumber);
@@ -64,6 +79,10 @@ public class FrameManager {
 		frame.setVisible(true);
 	}
 
+	/**
+	 * Startet einen Fight mit einem Enemy
+	 * @param e Den Gegner gegen den der Spieler kämpfen soll
+	 */
 	public static void startFight(Enemy e){
 		actualFrame = new Fight(e, 10, roomNumber * 10);
 		//actualFrame.loadGUI();
@@ -71,6 +90,10 @@ public class FrameManager {
 		frame.setVisible(true);
 	}
 
+	/**
+	 * Nach einem Kampf, falls dieser gewonnen wurde wird diese Methode aufgerufen, zum wieder ins Spiel zurück zu kommen.
+	 * @param e Den Gegner, den man im Kampf besiegt hat
+	 */
 	public static void backToRoom(Enemy e){
 		actualRoom.removeEnemy(e);
 		actualFrame = actualRoom;
@@ -78,6 +101,9 @@ public class FrameManager {
 		frame.setVisible(true);
 	}
 	
+	/**
+	 * Startet das MainMenu
+	 */
 	public static void mainMenu(){
 		actualFrame = new MainMenu();
 		//actualFrame.loadGUI();
@@ -85,6 +111,9 @@ public class FrameManager {
 		frame.setVisible(true);
 	}
 	
+	/**
+	 * Startet den GameOver-Bildschirm
+	 */
 	public static void gameOver(){
 		actualFrame = new GameOver();
 		//actualFrame.loadGUI();
@@ -92,6 +121,10 @@ public class FrameManager {
 		frame.setVisible(true);
 	}
 
+	/**
+	 * Gibt den aktuellen Frame zurück
+	 * @return Das aktuelle Frame
+	 */
 	public static IGUIFrame getActualFrame() {
 		return actualFrame;
 	}

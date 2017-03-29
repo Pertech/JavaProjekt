@@ -14,6 +14,13 @@ import WorldObject.NextLevel;
 import WorldObject.WorldObject;
 import WorldObject.WorldObjectSingleton;
 
+/**
+ * 
+ * @author Micha Meystre
+ * @version 1.0
+ * Macht die Colission-Detection. Das bedeudet er checkt, ob z.B. der Spieler eine Wand berührt und da nicht mehr weiterlaufen darf.
+ *
+ */
 public class CollisionDetection {
 
 	private static CollisionDetection instance;
@@ -32,14 +39,29 @@ public class CollisionDetection {
 	
 	}
 	
+	/**
+	 * Gibt den Player zurück
+	 * @return der aktuelle Player
+	 */
 	public Player getPlayer() {
 		return p;
 	}
 
+	/**
+	 * Methode zum einen neuen Player zu setzen
+	 * @param p Der neue Player
+	 */
 	public void setPlayer(Player p) {
 		this.p = p;
 	}
 
+	/**
+	 * Checkt ob es eine Kollision gibt.
+	 * @param e 
+	 * @param enemies Liste aller Enemies
+	 * @param x 
+	 * @param y
+	 */
 	public void checkCollision(Entity e, List<Enemy> enemies, int x, int y){
 		e.setCanMove(true);
 		boolean nextRoom = false;
@@ -76,6 +98,11 @@ public class CollisionDetection {
 		}
 	}
 	
+	/**
+	 * Erstellt einen neuen Enemy mit einem zufälligen Spawn-Punkt. Es wird auch geschaut, dass er nicht in einem anderen Enemy spawnt.
+	 * @param enemies Liste der aktuellen Enemies
+	 * @return Der neu erstellte Enemy
+	 */
 	public Enemy randomSpawnPosition(List<Enemy> enemies){
 		boolean collision = true;
 		Rectangle enemyRect = null;

@@ -19,7 +19,13 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import GUI.Interface.IGUIFrame;
-
+/**
+ * 
+ * @author Loic Jermann
+ * @version 1.0
+ * Erstellt das GUI für das MainMenu. Es hat 2 Buttons. Einen zum das Spiel starten, welchen einem zum ersten Level weiterleitet und einen zum das Spiel beenden.
+ *
+ */
 public class MainMenu extends JPanel implements IGUIFrame, ActionListener{
 	
 

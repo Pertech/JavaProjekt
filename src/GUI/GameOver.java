@@ -12,7 +12,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import GUI.Interface.IGUIFrame;
-
+/**
+ * 
+ * @author Loic Jermann
+ * @version 1.0
+ * Erstellt das GUI für den GameOver-Bildschirm. Hat keine spezielle Logik implementiert, nur 1 Button für zum MainMenu gelangen
+ *
+ */
 public class GameOver extends JPanel implements IGUIFrame, ActionListener{
 	
 	JLabel gameOver, background;
