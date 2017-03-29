@@ -34,7 +34,6 @@ public class WorldObjectSingleton {
 	
 	public void addWorldObject(WorldObject wo){
 		worldObjects.add(wo);
-		//a
 	}
 
 	public void removeWorldObject(WorldObject wo){
