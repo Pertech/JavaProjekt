@@ -11,10 +11,22 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.DataLine;
 import javax.sound.sampled.FloatControl;
 
+/**
+ * 
+ * Für das Abspielen von Musik zuständig.
+ *
+ * @version 1.0
+ * @author Micha Meystre
+ *
+ */
 public class MusicPlayer {
 	private int actualFileID;
 	private ArrayList<String> musicFiles;
 	
+	/**
+	 * Der Konstruktor der Klasse Musicplayer
+	 * @param files Name der Musikdateien
+	 */
 	public MusicPlayer(String[] files){
 		musicFiles = new ArrayList<String>();
 		for(String file : files){
@@ -23,7 +35,11 @@ public class MusicPlayer {
 		playSound(musicFiles.get(0));
 	}
 	
-	public void playSound(String fileName){
+	/**
+	 * Spielt die Musik (mit Playlist Funktion)
+	 * @param fileName
+	 */
+	private void playSound(String fileName){
 		File soundFile = new File(fileName);
 		AudioInputStream ais;
 		try {

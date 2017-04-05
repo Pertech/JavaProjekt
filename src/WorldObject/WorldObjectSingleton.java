@@ -7,6 +7,12 @@ import java.util.List;
 
 import Entity.Entity;
 
+/**
+ * Beinhaltet alle Worldobjects
+ * @version 1.0
+ * @author Micha Meystre
+ *
+ */
 public class WorldObjectSingleton {
 
 
@@ -28,22 +34,42 @@ public class WorldObjectSingleton {
 	
 	}
 
+	/**
+	 * Gibt eine Liste aller WorldObjects zurück.
+	 * @return
+	 */
 	public List<WorldObject> getWorldObjects() {
 		return worldObjects;
 	}
 	
+	/**
+	 * Fügt ein WorldObject der Liste hinzu.
+	 * @param wo
+	 */
 	public void addWorldObject(WorldObject wo){
 		worldObjects.add(wo);
 	}
 
+	/**
+	 * Entfernt ein WorldObject aus der Liste.
+	 * @param wo
+	 */
 	public void removeWorldObject(WorldObject wo){
 		worldObjects.remove(wo);
 	}
 	
+	/**
+	 * Löscht alle Objekte aus der Liste
+	 */
 	public void clearWorldObjects(){
 		worldObjects.clear();
 	}
 
+	/**
+	 * Fügt alle Objekte aus einem 2d Array der Liate hinzu.
+	 * @param levelArray
+	 * @throws IOException
+	 */
 	public void createWorldObjectFromArray(int[][] levelArray) throws IOException{
 		for (int x = 0; x < levelArray.length; x++) {
 			for (int y = 0; y < levelArray[x].length; y++) {

@@ -12,7 +12,7 @@ public class EnemySingleton {
 
 	private static EnemySingleton instance;
 	
-	private List<Enemy> worldObjects = new ArrayList<Enemy>();
+	private List<Enemy> enemies = new ArrayList<Enemy>();
 	
 	private EnemySingleton() {} 
 	
@@ -28,20 +28,36 @@ public class EnemySingleton {
 	
 	}
 
+	/**
+	 * Gibt eine Liste aller Gegner zurück
+	 * @return List<Enemy> - Liste aller Gegner
+	 */
 	public List<Enemy> getEnemies() {
-		return worldObjects;
+		return enemies;
 	}
 	
+	/**
+	 * Fügt einen neuen Gegner zur Liste hinzu.
+	 * @param e - Neuer Gegner
+	 */
 	public void addEnemy(Enemy e){
-		worldObjects.add(e);
+		enemies.add(e);
 	}
 
+	/**
+	 * Löscht einen Gegner von der Liste
+	 * @param e
+	 */
 	public void removeEnemy(Enemy e){
-		worldObjects.remove(e);
+		enemies.remove(e);
 	}
 	
-	public void clearWorldObjects(){
-		worldObjects.clear();
+	
+	/**
+	 * Löscht alle Gegner von der Liste
+	 */
+	public void clearEnemies(){
+		enemies.clear();
 	}
 
 }

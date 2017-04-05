@@ -7,6 +7,13 @@ import javax.imageio.ImageIO;
 
 import Entity.Entity;
 
+/**
+ * 
+ * Das Objekt "Ground"
+ * @version 1.0
+ * @author Micha Meystre
+ *
+ */
 public class Ground extends WorldObject {
 
 	public Ground(int posX, int posY) throws IOException {

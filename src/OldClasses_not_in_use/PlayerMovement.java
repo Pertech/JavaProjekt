@@ -1,9 +1,11 @@
-package Entity;
+package OldClasses_not_in_use;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import Collision.CollisionDetection;
+import Entity.Entity;
+import Entity.Player;
 import WorldObject.WorldObjectSingleton;
 
 /**

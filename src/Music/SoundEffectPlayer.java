@@ -9,7 +9,18 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.DataLine;
 import javax.sound.sampled.FloatControl;
 
+/**
+ * 
+ * Für das Abspielen von einzelnen Sounds zuständig
+ * @version 1.0
+ * @author Micha Meystre
+ *
+ */
 public class SoundEffectPlayer {
+	/**
+	 * Lässt einen Sound einmalig abspielen
+	 * @param fileName Der Name der Datei
+	 */
 	public void playSoundEffect(String fileName){
 		File soundFile = new File(fileName);
 		AudioInputStream ais;

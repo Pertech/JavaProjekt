@@ -11,6 +11,7 @@ import javax.swing.Timer;
 import javax.swing.plaf.SliderUI;
 
 import Entity.Enemy;
+import Entity.EnemySingleton;
 import GUI.Interface.IGUIFrame;
 import Music.MusicPlayer;
 
@@ -109,6 +110,7 @@ public class FrameManager {
 		//actualFrame.loadGUI();
 		frame.setContentPane((Container) actualFrame);
 		frame.setVisible(true);
+		EnemySingleton.getInstance().clearEnemies();
 	}
 	
 	/**

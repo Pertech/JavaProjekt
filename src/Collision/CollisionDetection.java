@@ -58,10 +58,9 @@ public class CollisionDetection {
 
 	/**
 	 * Checkt ob es eine Kollision gibt.
-	 * @param e 
-	 * @param enemies Liste aller Enemies
-	 * @param x 
-	 * @param y
+	 * @param e Das Entity, das sich bewegt
+	 * @param x Bewegung auf der X-Achse
+	 * @param y Bewegung auf der Y-Achse
 	 */
 	public void checkCollision(Entity e, int x, int y){
 		e.setCanMove(true);
@@ -102,7 +101,6 @@ public class CollisionDetection {
 
 	/**
 	 * Erstellt einen neuen Enemy mit einem zufälligen Spawn-Punkt. Es wird auch geschaut, dass er nicht in einem anderen Enemy spawnt.
-	 * @param enemies Liste der aktuellen Enemies
 	 * @return Der neu erstellte Enemy
 	 */
 	public Enemy randomSpawnPosition(){

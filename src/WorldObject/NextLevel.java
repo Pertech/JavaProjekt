@@ -8,6 +8,13 @@ import javax.imageio.ImageIO;
 import Entity.Entity;
 import GUI.FrameManager;
 
+/**
+ * Das Objekt "NextLevel"
+ * Es wird verwendet um in das nächste Level zu kommen.
+ * @version 1.0
+ * @author Micha Meystre
+ *
+ */
 public class NextLevel extends WorldObject {
 
 	public NextLevel(int posX, int posY) throws IOException {

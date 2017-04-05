@@ -5,6 +5,13 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * Das Objekt "LastRoomDoor".
+ * Wird verwendet als eine Tür, die man nicht öffnen kann.
+ * @version 1.0
+ * @author Micha
+ *
+ */
 public class LastRoomDoor extends WorldObject {
 
 	public LastRoomDoor(int posX, int posY) throws IOException {
