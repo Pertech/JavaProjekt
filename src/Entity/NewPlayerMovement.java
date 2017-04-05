@@ -37,7 +37,7 @@ public class NewPlayerMovement extends AbstractAction{
 			x += speed;
 		}
 		
-		CollisionDetection.getInstance().checkCollision((Entity)player, EnemySingleton.getInstance().getEnemies(), x, y);
+		CollisionDetection.getInstance().checkCollision((Entity)player, x, y);
 		
 		if(player.canMove()){
 			player.setPosX(player.getPosX() + x);

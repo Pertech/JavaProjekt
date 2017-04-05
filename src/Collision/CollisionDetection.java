@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 import Entity.Enemy;
+import Entity.EnemySingleton;
 import Entity.Entity;
 import Entity.Player;
 import GUI.FrameManager;
@@ -40,7 +41,7 @@ public class CollisionDetection {
 		this.p = p;
 	}
 
-	public void checkCollision(Entity e, List<Enemy> enemies, int x, int y){
+	public void checkCollision(Entity e, int x, int y){
 		e.setCanMove(true);
 		boolean nextRoom = false;
 		Rectangle entityRect = new Rectangle(e.getPosX() + x, e.getPosY() + y, e.getSizeX(), e.getSizeY());
@@ -59,7 +60,7 @@ public class CollisionDetection {
 			FrameManager.nextRoom();
 		}
 		
-		for (Enemy en : enemies) {
+		for (Enemy en : EnemySingleton.getInstance().getEnemies()) {
 			if(e != en){
 				Rectangle woRect = new Rectangle(en.getPosX(), en.getPosY(), en.getSizeX(), en.getSizeY());
 				if (entityRect.intersects(woRect)) {
@@ -76,7 +77,7 @@ public class CollisionDetection {
 		}
 	}
 	
-	public Enemy randomSpawnPosition(List<Enemy> enemies){
+	public Enemy randomSpawnPosition(){
 		boolean collision = true;
 		Rectangle enemyRect = null;
 		Random rand = new Random();
@@ -93,7 +94,7 @@ public class CollisionDetection {
 				}
 			}
 			
-			for (Enemy en : enemies) {
+			for (Enemy en : EnemySingleton.getInstance().getEnemies()) {
 				Rectangle woRect = new Rectangle(en.getPosX(), en.getPosY(), en.getSizeX(), en.getSizeY());
 				if (enemyRect.intersects(woRect)) {
 					collision = true;

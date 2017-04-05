@@ -90,7 +90,7 @@ public class Room extends JPanel implements IGUIFrame{
 			setKeyBindings();
 			CollisionDetection.getInstance().setPlayer(player);
 			for(int i = 0; i < enemyCount; i++){
-				EnemySingleton.getInstance().addEnemy(CollisionDetection.getInstance().randomSpawnPosition(EnemySingleton.getInstance().getEnemies()));
+				EnemySingleton.getInstance().addEnemy(CollisionDetection.getInstance().randomSpawnPosition());
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

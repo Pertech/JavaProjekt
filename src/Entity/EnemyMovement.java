@@ -38,7 +38,7 @@ public class EnemyMovement implements IMovement{
 				break;
 		}
 		
-		CollisionDetection.getInstance().checkCollision((Entity)e, EnemySingleton.getInstance().getEnemies(), x, y);
+		CollisionDetection.getInstance().checkCollision((Entity)e, x, y);
 		
 		if(e.canMove()){
 			e.setPosX(e.getPosX() + x);
