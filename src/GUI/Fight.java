@@ -20,6 +20,14 @@ import GUI.Interface.IGUIFrame;
 import Music.MusicPlayer;
 import Music.SoundEffectPlayer;
 
+/**
+ * 
+ * 
+ * @author Loic Jermann
+ * @version 1.0
+ * Klasse für Fight: Hier wird das GUI für den Fight aufgebaut und auch die Logik
+ *
+ */
 public class Fight extends JPanel implements IGUIFrame, ActionListener{
 	
 	static Timer timer;
@@ -59,7 +67,6 @@ public class Fight extends JPanel implements IGUIFrame, ActionListener{
 	}
 	
 	private static final int setInterval() {
-		//hallo
 	    if (seconds == 1){
 	        timer.cancel();
 	    	FrameManager.gameOver();
@@ -69,7 +76,6 @@ public class Fight extends JPanel implements IGUIFrame, ActionListener{
 
 	@Override
 	public void loadGUI() {
-//		FrameManager.backToRoom(enemy);
 		
 		setLayout(null);
 		setSize(1000, 550);
@@ -78,8 +84,6 @@ public class Fight extends JPanel implements IGUIFrame, ActionListener{
 		
 		button_click = new JButton();
 		button_click.setBounds(0, 0, 990, 548);
-//		ImageIcon image_start = new ImageIcon("res/background_fight.");
-//		button_click.setIcon(image_start);
 		button_click.setOpaque(false);
 		button_click.setContentAreaFilled(false);
 		button_click.setBorderPainted(true);

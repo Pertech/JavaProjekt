@@ -1,7 +1,13 @@
 package GUI;
 
 import GUI.Interface.ILevel;
-
+/**
+ * 
+ * @author Micha Meystre
+ * @version 1.0
+ * Hier werden die Levels in einem 2-Dimensionalen Array gespeichert. Hier steht z.B. 0 für Boden, 1 für Wand, 2 für offene Türe, 3 für geschlossene Türe, usw..
+ *
+ */
 public class LevelArrays implements ILevel{
 
 	private int[][] level1 = {
@@ -32,6 +38,9 @@ public class LevelArrays implements ILevel{
 			{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
 			};
 	
+	/**
+	 * Gibt das Array für das gewünschte Level zurück.
+	 */
 	@Override
 	public int[][] getLevel(int index) {
 		switch (index) {

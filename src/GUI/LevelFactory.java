@@ -2,6 +2,13 @@ package GUI;
 
 import GUI.Interface.ILevel;
 
+/**
+ * 
+ * @author Micha Meystre
+ * @version 1.0
+ * 
+ *
+ */
 public class LevelFactory {
 
 
